@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <% include ./partials/headers %>
+  </head>
+  <body class="container">
+      <header>
+        <%- include ./partials/userProfile %>
+        <h1><%=message%></h1>
+        <%- include ./partials/messages %>
+        <%if(createOpening){%>
+          <form action="/createOpening" method="GET" style="float: right;">
+          <button type="submit" class="btn btn-primary">Create New Opening</button>
+          </form>
+        <%}%> 
+      </header>
+      <table lass="table">
+        <thead class="thead-dark">
+          <th scope="col">Project Name</th>
+          <th scope="col">Role In Project</th>
+          <th scope="col">Technologies</th>
+        </thead>
+        <tbody>
+        <%if(openingList){%>
+        <%openingList.forEach(function(opening){%>
+         <tr scope="row">
+             <td style="width: 138px;padding-top: 20px;">
+                     <%= opening.projectName%>
+             </td>
+             <td style="width: 138px;">
+                  <%= opening.role%>
+            </td>
+            <td style="width: 138px;">
+                  <%= opening.technologies%>
+            </td>
+            <td style="width: 138px;">
+              <form>
+              <button type="submit" formaction="/api/auth/detailOpening/<%= opening._id%>" formmethod="get" class="btn btn-primary">Detail</button>
+              </form>
+            </td> &nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+              <%if(opening.createdBy._id===loggedUserId){%>
+                <form action="/api/auth/update/<%= opening._id%>" method="GET">
+                <td style="width: 138px;"><button type="submit" class="btn btn-primary">update</button></td>
+                </form>
+              <%}%>
+            </td>
+         </tr>
+        <%})%>
+        <%}%>
+        </tbody>
+      </table>
+      <footer class="page-footer">
+       <%include ./partials/footer%>
+      </footer>
+  </body>
+</html>

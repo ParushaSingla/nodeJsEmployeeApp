@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <% include ./partials/headers %>
+  </head>
+  <body class="container">
+    <header>
+      <h1><%=message%></h1>
+    </header> 
+<form action="/api/auth/createOpening" method="post">
+    <div class="form-group">
+      <input type="hidden" name="_id" value="<%- opening._id%>">
+      <input type="hidden" name="employeesApplied" value="<%- opening.employeesApplied%>">
+      <label>Project Name</label>
+      <input name="projectName"  class="form-control"  value="<%- opening.projectName%>">
+      <label>Client Name</label>
+      <input name="clientName"  class="form-control"  value="<%- opening.clientName%>">
+      <label>Technologies</label>
+      <input name="technologies"  class="form-control"  value="<%- opening.technologies%>">
+      <label>Role</label>
+      <input name="role"  class="form-control"  value="<%- opening.role%>">
+      <label>Job Description</label>
+      <input name="jobDescription"  class="form-control"  value="<%- opening.jobDescription%>">
+      <label>Status(It can have only two values open or closed*)</label>
+      <input name="status"  class="form-control"  value="<%- opening.status%>">
+    </div>
+    <button type="submit" id="send" class="btn btn-primary"><%=buttonName%></button>
+  </form>
+  <footer class="page-footer">
+    <%include ./partials/footer%>
+   </footer>
+</body>
+</html>

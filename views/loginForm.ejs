@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <% include ./partials/headers %>
+  </head>
+  <body class="container">
+    <header>
+      <h1><%=message%></h1>
+        <%- include ./partials/messages %>
+    </header>
+<form action="/auth/api/signIn" method="POST">
+    <div class="form-group">
+      <label>Name</label>
+      <input name="username"  class="form-control" >
+      <label>Password</label>
+      <input name="password" type="password" class="form-control" >
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <a href="/register">New User!! Please Register here</a> 
+  <footer class="page-footer">
+    <%include ./partials/footer%>
+   </footer>
+</body>
+</html>
