@@ -11,6 +11,9 @@ Assumption
 •	For login user need registered username and password.
 •	In some cases I have shown flash messages with redirection and in some error messages will be there with back button you can go back to previous screen.
 •	Manager cannot apply for an opening
+
+username=parusha pwd=parusha is manager
+username=vanshika pwd=vanshika is employee
 Database
 Models: user, opening and role 
 User can be manager, or an employee Role get initialize when we initdatabase 

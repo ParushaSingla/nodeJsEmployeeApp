@@ -7,8 +7,8 @@ var request = require("supertest");
 chai.use(chaiHttp);
 //let the user be 
 const user = {
-  username: "vanshika",
-  password: "vanshika",
+  username: "parusha",
+  password: "parusha",
 };
 //1. sign in ) now let's login the user before we run any tests
 var authenticatedUser = request.agent(app);
